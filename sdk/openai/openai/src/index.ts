@@ -20,3 +20,4 @@ export {
   GetCompletionsOptions,
 } from "./api/operations.js";
 export { ClientOptions, RequestOptions } from "./common/interfaces.js";
+export { OpenAI } from "./OpenAI.js"

@@ -9,6 +9,7 @@ specifiers:
   '@rush-temp/ai-language-conversations': file:./projects/ai-language-conversations.tgz
   '@rush-temp/ai-language-text': file:./projects/ai-language-text.tgz
   '@rush-temp/ai-metrics-advisor': file:./projects/ai-metrics-advisor.tgz
+  '@rush-temp/ai-openai': file:./projects/ai-openai.tgz
   '@rush-temp/ai-personalizer': file:./projects/ai-personalizer.tgz
   '@rush-temp/ai-text-analytics': file:./projects/ai-text-analytics.tgz
   '@rush-temp/api-management-custom-widgets-scaffolder': file:./projects/api-management-custom-widgets-scaffolder.tgz
@@ -345,6 +346,7 @@ dependencies:
   '@rush-temp/ai-language-conversations': file:projects/ai-language-conversations.tgz
   '@rush-temp/ai-language-text': file:projects/ai-language-text.tgz
   '@rush-temp/ai-metrics-advisor': file:projects/ai-metrics-advisor.tgz
+  '@rush-temp/ai-openai': file:projects/ai-openai.tgz
   '@rush-temp/ai-personalizer': file:projects/ai-personalizer.tgz
   '@rush-temp/ai-text-analytics': file:projects/ai-text-analytics.tgz
   '@rush-temp/api-management-custom-widgets-scaffolder': file:projects/api-management-custom-widgets-scaffolder.tgz
@@ -734,6 +736,7 @@ packages:
   /@azure/ai-form-recognizer/3.1.0-beta.3:
     resolution: {integrity: sha512-+4QtFKNyxAmdqpcYjuAtmWKm/MuOe9kZsbpS9jA9h0YHzngNj5gc67AA4egV9BXOq9x+1phjYTNC/rxiOUr1uQ==}
     engines: {node: '>=8.0.0'}
+    deprecated: Please migrate to a supported (non-beta) version of this package
     dependencies:
       '@azure/core-auth': 1.4.0
       '@azure/core-http': 1.2.6
@@ -2069,6 +2072,26 @@ packages:
       rollup: 2.79.1
       tslib: 2.5.0
       typescript: 4.8.4
+    dev: false
+
+  /@rollup/plugin-typescript/11.0.0_s3thvc5szxgiq3lrwibj2goccm:
+    resolution: {integrity: sha512-goPyCWBiimk1iJgSTgsehFD5OOFHiAknrRJjqFCudcW8JtWiBlK284Xnn4flqMqg6YAjVG/EE+3aVzrL5qNSzQ==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^2.14.0||^3.0.0
+      tslib: '*'
+      typescript: '>=3.7.0'
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+      tslib:
+        optional: true
+    dependencies:
+      '@rollup/pluginutils': 5.0.2_rollup@2.79.1
+      resolve: 1.22.1
+      rollup: 2.79.1
+      tslib: 2.5.0
+      typescript: 5.0.3
     dev: false
 
   /@rollup/plugin-virtual/2.1.0_rollup@2.79.1:
@@ -7475,6 +7498,33 @@ packages:
       - utf-8-validate
     dev: false
 
+  /puppeteer-core/19.8.0_typescript@5.0.3:
+    resolution: {integrity: sha512-5gBkLR9nae7chWDhI3mpj5QA+hPmjEOW29qw5ap5g51Uo5Lxe5Yip1uyQwZSjg5Wn/eyE9grh2Lyx3m8rPK90A==}
+    engines: {node: '>=14.14.0'}
+    peerDependencies:
+      typescript: '>= 4.7.4'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      chromium-bidi: 0.4.5_7yd6ibrwer4fxzjxd6md3toxiy
+      cross-fetch: 3.1.5
+      debug: 4.3.4
+      devtools-protocol: 0.0.1107588
+      extract-zip: 2.0.1
+      https-proxy-agent: 5.0.1
+      proxy-from-env: 1.1.0
+      tar-fs: 2.1.1
+      typescript: 5.0.3
+      unbzip2-stream: 1.4.3
+      ws: 8.13.0
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - supports-color
+      - utf-8-validate
+    dev: false
+
   /puppeteer/19.8.0_typescript@4.8.4:
     resolution: {integrity: sha512-MpQClmttCUxv4bVokX/YSXLCU12CUApuRf0rIJyGknYcIrDQNkLUx1N7hNt88Ya4lq9VDsdiDEJ3bcPijqJYPQ==}
     requiresBuild: true
@@ -7484,6 +7534,23 @@ packages:
       progress: 2.0.3
       proxy-from-env: 1.1.0
       puppeteer-core: 19.8.0_typescript@4.8.4
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - supports-color
+      - typescript
+      - utf-8-validate
+    dev: false
+
+  /puppeteer/19.8.0_typescript@5.0.3:
+    resolution: {integrity: sha512-MpQClmttCUxv4bVokX/YSXLCU12CUApuRf0rIJyGknYcIrDQNkLUx1N7hNt88Ya4lq9VDsdiDEJ3bcPijqJYPQ==}
+    requiresBuild: true
+    dependencies:
+      cosmiconfig: 8.1.3
+      https-proxy-agent: 5.0.1
+      progress: 2.0.3
+      proxy-from-env: 1.1.0
+      puppeteer-core: 19.8.0_typescript@5.0.3
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -8640,6 +8707,37 @@ packages:
       yn: 3.1.1
     dev: false
 
+  /ts-node/10.9.1_sldqwkjhf42mhg5g6wqfplbv6m:
+    resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
+    hasBin: true
+    peerDependencies:
+      '@swc/core': '>=1.2.50'
+      '@swc/wasm': '>=1.2.50'
+      '@types/node': '*'
+      typescript: '>=2.7'
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      '@swc/wasm':
+        optional: true
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@tsconfig/node10': 1.0.9
+      '@tsconfig/node12': 1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.3
+      '@types/node': 14.18.41
+      acorn: 8.8.2
+      acorn-walk: 8.2.0
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      typescript: 5.0.3
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+    dev: false
+
   /ts-node/8.10.2_typescript@4.8.4:
     resolution: {integrity: sha512-ISJJGgkIpDdBhWVu3jufsWpK3Rzo7bdiIXJjQc0ynKxVOVcg2oIrf2H2cejminGrptVc6q6/uynAHNCuWGbpVA==}
     engines: {node: '>=6.0.0'}
@@ -9657,6 +9755,63 @@ packages:
       ts-node: 10.9.1_rwcdhhaqkims6irrp2ypnntvry
       tslib: 2.5.0
       typescript: 4.8.4
+    transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
+      - bufferutil
+      - debug
+      - encoding
+      - supports-color
+      - utf-8-validate
+    dev: false
+
+  file:projects/ai-openai.tgz:
+    resolution: {integrity: sha512-U4XPG4QWXWRLf7n81WwDqW7uULCc7Nz3eIansscUas5GKHfS8RZuFQA6+A40T4/jT4NikuTV1O6wTMNE2zzhBg==, tarball: file:projects/ai-openai.tgz}
+    name: '@rush-temp/ai-openai'
+    version: 0.0.0
+    dependencies:
+      '@microsoft/api-extractor': 7.34.4_@types+node@14.18.41
+      '@rollup/plugin-commonjs': 24.0.1_rollup@2.79.1
+      '@rollup/plugin-inject': 5.0.3_rollup@2.79.1
+      '@rollup/plugin-json': 6.0.0_rollup@2.79.1
+      '@rollup/plugin-multi-entry': 6.0.0_rollup@2.79.1
+      '@rollup/plugin-node-resolve': 13.3.0_rollup@2.79.1
+      '@rollup/plugin-replace': 5.0.2_rollup@2.79.1
+      '@rollup/plugin-typescript': 11.0.0_s3thvc5szxgiq3lrwibj2goccm
+      '@types/chai': 4.3.4
+      '@types/mocha': 7.0.2
+      '@types/node': 14.18.41
+      '@types/uuid': 8.3.4
+      chai: 4.3.7
+      cross-env: 7.0.3
+      dotenv: 16.0.3
+      downlevel-dts: 0.10.1
+      eslint: 8.36.0
+      esm: 3.2.25
+      karma: 6.4.1
+      karma-chrome-launcher: 3.1.1
+      karma-coverage: 2.2.0
+      karma-edge-launcher: 0.4.2_karma@6.4.1
+      karma-env-preprocessor: 0.1.1
+      karma-firefox-launcher: 2.1.2
+      karma-json-preprocessor: 0.3.3_karma@6.4.1
+      karma-json-to-file-reporter: 1.0.1
+      karma-junit-reporter: 2.0.1_karma@6.4.1
+      karma-mocha: 2.0.1
+      karma-mocha-reporter: 2.2.5_karma@6.4.1
+      karma-sourcemap-loader: 0.3.8
+      mocha: 7.2.0
+      mocha-junit-reporter: 2.2.0_mocha@7.2.0
+      nyc: 15.1.0
+      prettier: 2.8.7
+      puppeteer: 19.8.0_typescript@5.0.3
+      rimraf: 3.0.2
+      rollup: 2.79.1
+      rollup-plugin-shim: 1.0.0
+      rollup-plugin-sourcemaps: 0.6.3_qg36w4uagpty5et2swcu4ykn64
+      ts-node: 10.9.1_sldqwkjhf42mhg5g6wqfplbv6m
+      tslib: 2.5.0
+      typescript: 5.0.3
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'

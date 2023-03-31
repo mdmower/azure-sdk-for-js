@@ -6,7 +6,7 @@ Azure OpenAI APIs for completions and search
 
 Key links:
 
-- [Package (NPM)](https://www.npmjs.com/package/@msinternal/openai_modular)
+- [Package (NPM)](https://www.npmjs.com/package/@azure/ai-openai)
 
 ## Getting started
 
@@ -18,12 +18,12 @@ Key links:
 
 - You must have an [Azure subscription](https://azure.microsoft.com/free/) to use this package.
 
-### Install the `@msinternal/openai_modular` package
+### Install the `@azure/ai-openai` package
 
 Install the OpenAI REST client REST client library for JavaScript with `npm`:
 
 ```bash
-npm install @msinternal/openai_modular
+npm install @azure/ai-openai
 ```
 
 ### Create and authenticate a `OpenAIClient`

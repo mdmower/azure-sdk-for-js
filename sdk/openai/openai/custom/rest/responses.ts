@@ -9,6 +9,7 @@ import {
   ChatCompletionsOutput,
 } from "./outputModels.js";
 
+/** The request has succeeded. */
 export interface GetEmbeddings200Response extends HttpResponse {
   status: "200";
   body: EmbeddingsOutput;
@@ -25,6 +26,7 @@ export interface GetEmbeddingsDefaultResponse extends HttpResponse {
   headers: RawHttpHeaders & GetEmbeddingsDefaultHeaders;
 }
 
+/** The request has succeeded. */
 export interface GetCompletions200Response extends HttpResponse {
   status: "200";
   body: CompletionsOutput;
@@ -41,6 +43,7 @@ export interface GetCompletionsDefaultResponse extends HttpResponse {
   headers: RawHttpHeaders & GetCompletionsDefaultHeaders;
 }
 
+/** The request has succeeded. */
 export interface GetChatCompletions200Response extends HttpResponse {
   status: "200";
   body: ChatCompletionsOutput;

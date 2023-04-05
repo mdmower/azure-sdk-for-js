@@ -1,6 +1,7 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT license.
 
+/** */
 export interface DeploymentEmbeddingsOptionsEmbeddings {
   /** Embedding values for the prompts submitted in the request. */
   data: EmbeddingItem[];
@@ -8,6 +9,7 @@ export interface DeploymentEmbeddingsOptionsEmbeddings {
   usage: EmbeddingsUsage;
 }
 
+/** Representation of a single embeddings relatedness comparison. */
 export interface EmbeddingItem {
   /**
    * List of embeddings value for the input prompt. These represent a measurement of the
@@ -18,6 +20,7 @@ export interface EmbeddingItem {
   index: number;
 }
 
+/** Measurement of the amount of tokens used in this request and response. */
 export interface EmbeddingsUsage {
   /** Number of tokens sent in the original request. */
   promptTokens: number;
@@ -25,6 +28,7 @@ export interface EmbeddingsUsage {
   totalTokens: number;
 }
 
+/** */
 export interface EmbeddingsOptions {
   /**
    * An identifier for the caller or end user of the operation. This may be used for tracking
@@ -48,6 +52,7 @@ export interface EmbeddingsOptions {
   input: string | string[];
 }
 
+/** */
 export interface DeploymentCompletionsOptionsCompletions {
   /** A unique identifier associated with this completions response. */
   id: string;
@@ -66,6 +71,11 @@ export interface DeploymentCompletionsOptionsCompletions {
   usage: CompletionsUsage;
 }
 
+/**
+ * The representation of a single prompt completion as part of an overall completions request.
+ * Generally, `n` choices are generated per provided prompt with a default value of 1.
+ * Token limits and other settings may limit the number of choices generated.
+ */
 export interface Choice {
   /** The generated text for a given completions prompt. */
   text: string;
@@ -77,6 +87,7 @@ export interface Choice {
   finishReason: CompletionsFinishReason;
 }
 
+/** Representation of a log probabilities model for a completions generation. */
 export interface CompletionsLogProbabilityModel {
   /** The textual forms of tokens evaluated in this probability model. */
   tokens?: string[];
@@ -88,8 +99,15 @@ export interface CompletionsLogProbabilityModel {
   textOffset?: number[];
 }
 
+/** Representation of the manner in which a completions response concluded. */
+/** "none", "stopped", "tokenLimitReached", "contentFiltered" */
 export type CompletionsFinishReason = string;
 
+/**
+ * Representation of the token counts processed for a completions request.
+ * Counts consider all tokens across prompts, choices, choice alternates, best_of generations, and
+ * other consumers.
+ */
 export interface CompletionsUsage {
   /** The number of tokens generated across all completions emissions. */
   completionTokens: number;
@@ -99,6 +117,7 @@ export interface CompletionsUsage {
   totalTokens: number;
 }
 
+/** */
 export interface CompletionsOptions {
   /**
    * The prompts to generate completions from. Defaults to a single prompt of <|endoftext|> if not
@@ -189,6 +208,7 @@ export interface CompletionsOptions {
   model?: string;
 }
 
+/** */
 export interface DeploymentChatCompletionsOptionsChatCompletions {
   /** A unique identifier associated with this chat completions response. */
   id: string;
@@ -207,6 +227,11 @@ export interface DeploymentChatCompletionsOptionsChatCompletions {
   usage: CompletionsUsage;
 }
 
+/**
+ * The representation of a single prompt completion as part of an overall chat completions request.
+ * Generally, `n` choices are generated per provided prompt with a default value of 1.
+ * Token limits and other settings may limit the number of choices generated.
+ */
 export interface ChatChoice {
   /** The chat message for a given chat completions prompt. */
   message?: ChatMessage;
@@ -218,6 +243,7 @@ export interface ChatChoice {
   delta?: ChatMessage;
 }
 
+/** A single, role-attributed message within a chat completion interaction. */
 export interface ChatMessage {
   /** The role associated with this message payload. */
   role: ChatRole;
@@ -225,8 +251,11 @@ export interface ChatMessage {
   content?: string;
 }
 
+/** A description of the intended purpose of a message within a chat completions interaction. */
+/** "system", "assistant", "user" */
 export type ChatRole = string;
 
+/** */
 export interface ChatCompletionsOptions {
   /**
    * The collection of context messages associated with this chat completions request.

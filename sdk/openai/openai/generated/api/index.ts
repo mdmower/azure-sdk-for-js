@@ -17,7 +17,8 @@ export {
   ChatMessage,
   ChatRole,
   ChatCompletionsOptions,
-} from "./api/models.js";
+} from "./models.js";
+export { createOpenAI, OpenAIContext } from "./OpenAIContext.js";
 export {
   getEmbeddings,
   getCompletions,
@@ -25,6 +26,4 @@ export {
   GetEmbeddingsOptions,
   GetCompletionsOptions,
   GetChatCompletionsOptions,
-} from "./api/operations.js";
-export { OpenAIClient } from "./OpenAIClient.js";
-export { ClientOptions, RequestOptions } from "./common/interfaces.js";
+} from "./operations.js";

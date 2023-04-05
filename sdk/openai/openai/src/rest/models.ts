@@ -1,11 +1,6 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT license.
 
-/**
- * The configuration information for an embeddings request.
- * Embeddings measure the relatedness of text strings and are commonly used for search, clustering,
- * recommendations, and other similar scenarios.
- */
 export interface EmbeddingsOptions {
   /**
    * An identifier for the caller or end user of the operation. This may be used for tracking
@@ -29,17 +24,12 @@ export interface EmbeddingsOptions {
   input: string | string[];
 }
 
-/**
- * The configuration information for a completions request.
- * Completions support a wide variety of tasks and generate text that continues from or "completes"
- * provided prompt data.
- */
 export interface CompletionsOptions {
   /**
    * The prompts to generate completions from. Defaults to a single prompt of <|endoftext|> if not
    * otherwise specified.
    */
-  prompt?: string[];
+  prompt?: string[] | string;
   /** The maximum number of tokens to generate. */
   max_tokens?: number;
   /**
@@ -124,11 +114,6 @@ export interface CompletionsOptions {
   model?: string;
 }
 
-/**
- * The configuration information for a chat completions request.
- * Completions support a wide variety of tasks and generate text that continues from or "completes"
- * provided prompt data.
- */
 export interface ChatCompletionsOptions {
   /**
    * The collection of context messages associated with this chat completions request.
@@ -202,7 +187,6 @@ export interface ChatCompletionsOptions {
   model?: string;
 }
 
-/** A single, role-attributed message within a chat completion interaction. */
 export interface ChatMessage {
   /**
    * The role associated with this message payload.

@@ -66,7 +66,11 @@ export async function getEmbeddings(
 }
 
 export interface GetCompletionsOptions extends RequestOptions {
-  prompt?: string | string[];
+  /**
+   * The prompts to generate completions from. Defaults to a single prompt of <|endoftext|> if not
+   * otherwise specified.
+   */
+  prompt?: string[] | string;
   /** The maximum number of tokens to generate. */
   maxTokens?: number;
   /**
@@ -160,7 +164,7 @@ export interface GetCompletionsOptions extends RequestOptions {
  * Completions support a wide variety of tasks and generate text that continues from or "completes"
  * provided prompt data.
  */
-async function _getCompletions(
+export async function getCompletions(
   context: Client,
   deploymentId: string,
   options: GetCompletionsOptions = { requestOptions: {} }
@@ -354,33 +358,4 @@ export async function getChatCompletions(
       totalTokens: result.body.usage["total_tokens"],
     },
   };
-}
-export async function getCompletions(
-  context: Client,
-  deploymentId: string,
-  options?: GetCompletionsOptions
-): Promise<DeploymentCompletionsOptionsCompletions>
-export async function getCompletions(
-  context: Client,
-  deploymentId: string,
-  prompt: string,
-  options?: GetCompletionsOptions
-): Promise<DeploymentCompletionsOptionsCompletions>
-export async function getCompletions(
-  context: Client,
-  deploymentId: string,
-  prompt: string[],
-  options?: GetCompletionsOptions
-): Promise<DeploymentCompletionsOptionsCompletions>
-export async function getCompletions(
-  context: Client,
-  deploymentId: string,
-  inputPromptOrOptions?: string | string[] | GetCompletionsOptions,
-  options: GetCompletionsOptions = { requestOptions: {} }
-): Promise<DeploymentCompletionsOptionsCompletions> {
-  if (typeof inputPromptOrOptions === "object" && !Array.isArray(inputPromptOrOptions)) {
-    return _getCompletions(context, deploymentId, inputPromptOrOptions as GetCompletionsOptions);
-  } else {
-    return _getCompletions(context, deploymentId, { ...options, prompt: inputPromptOrOptions });
-  }
 }

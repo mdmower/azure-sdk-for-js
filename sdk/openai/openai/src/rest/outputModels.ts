@@ -1,17 +1,11 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT license.
 
-/** A specific deployment */
 export interface DeploymentOutput {
   /** deployment id of the deployed model */
   readonly deploymentId: string;
 }
 
-/**
- * Representation of the response data from an embeddings request.
- * Embeddings measure the relatedness of text strings and are commonly used for search, clustering,
- * recommendations, and other similar scenarios.
- */
 export interface EmbeddingsOutput {
   /** Embedding values for the prompts submitted in the request. */
   data: Array<EmbeddingItemOutput>;
@@ -19,7 +13,6 @@ export interface EmbeddingsOutput {
   usage: EmbeddingsUsageOutput;
 }
 
-/** Representation of a single embeddings relatedness comparison. */
 export interface EmbeddingItemOutput {
   /**
    * List of embeddings value for the input prompt. These represent a measurement of the
@@ -30,7 +23,6 @@ export interface EmbeddingItemOutput {
   index: number;
 }
 
-/** Measurement of the amount of tokens used in this request and response. */
 export interface EmbeddingsUsageOutput {
   /** Number of tokens sent in the original request. */
   prompt_tokens: number;
@@ -38,17 +30,12 @@ export interface EmbeddingsUsageOutput {
   total_tokens: number;
 }
 
-/**
- * The configuration information for a completions request.
- * Completions support a wide variety of tasks and generate text that continues from or "completes"
- * provided prompt data.
- */
 export interface CompletionsOptionsOutput {
   /**
    * The prompts to generate completions from. Defaults to a single prompt of <|endoftext|> if not
    * otherwise specified.
    */
-  prompt?: string[];
+  prompt?: string[] | string;
   /** The maximum number of tokens to generate. */
   max_tokens?: number;
   /**
@@ -133,11 +120,6 @@ export interface CompletionsOptionsOutput {
   model?: string;
 }
 
-/**
- * Representation of the response data from a completions request.
- * Completions support a wide variety of tasks and generate text that continues from or "completes"
- * provided prompt data.
- */
 export interface CompletionsOutput {
   /** A unique identifier associated with this completions response. */
   id: string;
@@ -156,11 +138,6 @@ export interface CompletionsOutput {
   usage: CompletionsUsageOutput;
 }
 
-/**
- * The representation of a single prompt completion as part of an overall completions request.
- * Generally, `n` choices are generated per provided prompt with a default value of 1.
- * Token limits and other settings may limit the number of choices generated.
- */
 export interface ChoiceOutput {
   /** The generated text for a given completions prompt. */
   text: string;
@@ -176,7 +153,6 @@ export interface ChoiceOutput {
   finish_reason: string;
 }
 
-/** Representation of a log probabilities model for a completions generation. */
 export interface CompletionsLogProbabilityModelOutput {
   /** The textual forms of tokens evaluated in this probability model. */
   tokens?: string[];
@@ -188,11 +164,6 @@ export interface CompletionsLogProbabilityModelOutput {
   text_offset?: number[];
 }
 
-/**
- * Representation of the token counts processed for a completions request.
- * Counts consider all tokens across prompts, choices, choice alternates, best_of generations, and
- * other consumers.
- */
 export interface CompletionsUsageOutput {
   /** The number of tokens generated across all completions emissions. */
   completion_tokens: number;
@@ -202,7 +173,6 @@ export interface CompletionsUsageOutput {
   total_tokens: number;
 }
 
-/** A single, role-attributed message within a chat completion interaction. */
 export interface ChatMessageOutput {
   /**
    * The role associated with this message payload.
@@ -214,11 +184,6 @@ export interface ChatMessageOutput {
   content?: string;
 }
 
-/**
- * The configuration information for a chat completions request.
- * Completions support a wide variety of tasks and generate text that continues from or "completes"
- * provided prompt data.
- */
 export interface ChatCompletionsOptionsOutput {
   /**
    * The collection of context messages associated with this chat completions request.
@@ -292,11 +257,6 @@ export interface ChatCompletionsOptionsOutput {
   model?: string;
 }
 
-/**
- * Representation of the response data from a chat completions request.
- * Completions support a wide variety of tasks and generate text that continues from or "completes"
- * provided prompt data.
- */
 export interface ChatCompletionsOutput {
   /** A unique identifier associated with this chat completions response. */
   id: string;
@@ -315,11 +275,6 @@ export interface ChatCompletionsOutput {
   usage: CompletionsUsageOutput;
 }
 
-/**
- * The representation of a single prompt completion as part of an overall chat completions request.
- * Generally, `n` choices are generated per provided prompt with a default value of 1.
- * Token limits and other settings may limit the number of choices generated.
- */
 export interface ChatChoiceOutput {
   /** The chat message for a given chat completions prompt. */
   message?: ChatMessageOutput;

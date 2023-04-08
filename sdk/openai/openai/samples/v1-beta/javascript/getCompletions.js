@@ -5,7 +5,7 @@
  * @summary test getCompletions
  */
 
-const { OpenAI } = require("@azure/ai-openai");
+const { OpenAIClient } = require("@azure/ai-openai");
 const { AzureKeyCredential } = require("@azure/core-auth");
 
 // Load the .env file if it exists
@@ -16,23 +16,20 @@ const endpoint = process.env["ENDPOINT"] || "<openai endpoint>";
 const apiKey = process.env["OPENAI_API_KEY"] || "<api key>";
 const modelVersion = process.env["MODEL_NAME"] || "<model name>";
 
-const doc = "";
+const doc = "Hello world!";
 
 async function main() {
   console.log("== Get completions Sample ==");
 
-  const client = new OpenAI(endpoint, new AzureKeyCredential(apiKey));
+  const client = new OpenAIClient(endpoint, new AzureKeyCredential(apiKey));
 
-  const result = await client.getCompletions(modelVersion, {
-    prompt: [doc],
-  });
+  const result = await client.getCompletions(modelVersion, doc);
 
-  console.log(JSON.stringify(result, null, 2));
+  console.log(result?.choices?.[0].text);
 }
 
 main().catch((err) => {
-  console.trace(err);
-  console.error("The sample encountered an error:", JSON.stringify(err));
+  console.error("The sample encountered an error:", err);
 });
 
 module.exports = { main };

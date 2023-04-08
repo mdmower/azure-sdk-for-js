@@ -2,13 +2,13 @@
 // Licensed under the MIT License.
 
 /**
- * 
+ *
  *
  * @summary test getCompletions
  * @azsdk-weight 100
  */
 
-import { OpenAI } from "@azure/ai-openai";
+import { OpenAIClient } from "@azure/ai-openai";
 import { AzureKeyCredential } from "@azure/core-auth";
 
 // Load the .env file if it exists
@@ -25,11 +25,9 @@ const doc = "Hello world!";
 export async function main() {
   console.log("== Get completions Sample ==");
 
-  const client = new OpenAI(endpoint, new AzureKeyCredential(apiKey));
+  const client = new OpenAIClient(endpoint, new AzureKeyCredential(apiKey));
 
-  const result = await client.getCompletions(modelVersion, {
-    prompt: [doc],
-  })
+  const result = await client.getCompletions(modelVersion, doc);
 
   console.log(result?.choices?.[0].text);
 }

@@ -16,7 +16,7 @@ const endpoint = process.env["ENDPOINT"] || "<openai endpoint>";
 const apiKey = process.env["OPENAI_API_KEY"] || "<api key>";
 const modelVersion = process.env["MODEL_NAME"] || "<model name>";
 
-const doc = "Hello world!";
+const doc = "";
 
 async function main() {
   console.log("== Get completions Sample ==");
@@ -27,11 +27,12 @@ async function main() {
     prompt: [doc],
   });
 
-  console.log(result?.choices?.[0].text);
+  console.log(JSON.stringify(result, null, 2));
 }
 
 main().catch((err) => {
-  console.error("The sample encountered an error:", err);
+  console.trace(err);
+  console.error("The sample encountered an error:", JSON.stringify(err));
 });
 
 module.exports = { main };

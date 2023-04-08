@@ -9,22 +9,20 @@ import {
 } from "./models.js";
 
 export interface GetEmbeddingsBodyParam {
-  body?: EmbeddingsOptions;
+    body?: EmbeddingsOptions;
+}
+
+export interface GetCompletionsBodyParam {
+    body?: CompletionsOptions;
+}
+
+export interface GetChatCompletionsBodyParam {
+    body?: ChatCompletionsOptions;
 }
 
 export type GetEmbeddingsParameters = GetEmbeddingsBodyParam &
-  RequestParameters;
-
-export interface GetCompletionsBodyParam {
-  body?: CompletionsOptions;
-}
-
+      RequestParameters;
 export type GetCompletionsParameters = GetCompletionsBodyParam &
-  RequestParameters;
-
-export interface GetChatCompletionsBodyParam {
-  body?: ChatCompletionsOptions;
-}
-
+      RequestParameters;
 export type GetChatCompletionsParameters = GetChatCompletionsBodyParam &
-  RequestParameters;
+      RequestParameters;

@@ -5,7 +5,9 @@
   "sdk-type": "client",
   "main": "dist/index.js",
   "module": "dist-esm/src/index.js",
-  "react-native": { "./dist/index.js": "./dist-esm/src/index.js" },
+  "react-native": {
+    "./dist/index.js": "./dist-esm/src/index.js"
+  },
   "type": "module",
   "exports": {
     ".": {
@@ -24,11 +26,20 @@
   },
   "//metadata": {
     "constantPaths": [
-      { "path": "src/utils/constants.ts", "prefix": "SDK_VERSION" }
+      {
+        "path": "src/utils/constants.ts",
+        "prefix": "SDK_VERSION"
+      }
     ]
   },
   "types": "types/latest/openai_modular.d.ts",
-  "typesVersions": { "<3.6": { "*": ["types/3.1/openai_modular.d.ts"] } },
+  "typesVersions": {
+    "<3.6": {
+      "*": [
+        "types/3.1/openai_modular.d.ts"
+      ]
+    }
+  },
   "scripts": {
     "audit": "node ../../../common/scripts/rush-audit.js && rimraf node_modules package-lock.json && npm i --package-lock-only 2>&1 && npm audit",
     "build:samples": "echo Obsolete",
@@ -64,11 +75,19 @@
     "LICENSE"
   ],
   "repository": "github:Azure/azure-sdk-for-js",
-  "engines": { "node": ">=14.0.0" },
-  "keywords": ["azure", "cloud", "typescript"],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "keywords": [
+    "azure",
+    "cloud",
+    "typescript"
+  ],
   "author": "Microsoft Corporation",
   "license": "MIT",
-  "bugs": { "url": "https://github.com/Azure/azure-sdk-for-js/issues" },
+  "bugs": {
+    "url": "https://github.com/Azure/azure-sdk-for-js/issues"
+  },
   "homepage": "https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/README.md",
   "sideEffects": false,
   "prettier": "@azure/eslint-plugin-azure-sdk/prettier.json",

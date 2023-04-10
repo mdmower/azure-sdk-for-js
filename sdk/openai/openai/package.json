@@ -32,14 +32,7 @@
       }
     ]
   },
-  "types": "types/latest/openai_modular.d.ts",
-  "typesVersions": {
-    "<3.6": {
-      "*": [
-        "types/3.1/openai_modular.d.ts"
-      ]
-    }
-  },
+  "types": "types/latest/ai-openai.d.ts",
   "scripts": {
     "audit": "node ../../../common/scripts/rush-audit.js && rimraf node_modules package-lock.json && npm i --package-lock-only 2>&1 && npm audit",
     "build:samples": "echo Obsolete",

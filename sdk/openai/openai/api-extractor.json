@@ -6,7 +6,7 @@
   "dtsRollup": {
     "enabled": true,
     "untrimmedFilePath": "",
-    "publicTrimmedFilePath": "./types/openai_modular.d.ts"
+    "publicTrimmedFilePath": "./types/ai-openai.d.ts"
   },
   "messages": {
     "tsdocMessageReporting": { "default": { "logLevel": "none" } },
